@@ -3,6 +3,7 @@ package com.kodilla.stream;
 
 
 import com.kodilla.stream.beautifier.PoemBeautifier;
+import com.kodilla.stream.iterate.NumbersGenerator;
 import com.kodilla.stream.lambda.ExpressionExecutor;
 
 
@@ -15,6 +16,7 @@ public class StreamMain {
         poemBeautifier.beautify("Once upon a time", (poem) -> poem.toUpperCase());
         poemBeautifier.beautify("Once upon a time", (poem) -> "ABC " + poem + " ABC");
         poemBeautifier.beautify("Once upon a time", (poem) -> poem.toLowerCase());
-
+        System.out.println("Using Stream to generate even numbers from 1 to 20");
+        NumbersGenerator.NumbersGenerator.generateEven(20);
     }
 }
