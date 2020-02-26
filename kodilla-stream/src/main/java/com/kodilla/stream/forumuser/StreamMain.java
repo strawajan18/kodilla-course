@@ -1,5 +1,6 @@
 package com.kodilla.stream.forumuser;
 
+import java.time.LocalDate;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -8,10 +9,10 @@ public class StreamMain {
         Forum forum = new Forum();
 
         Map<Integer, ForumUser> theMap = forum.getList().stream()
-                .filter(forumUser -> forumUser.getSex() = 'M')
-                .filter(forumUser -> forumUser.getBirthDate.of(yearOfBirth) <= 2000)
-                .filter(forumUser -> forumUser.getNumberOfPosts() >= 1)
-                .collect(Collectors.toMap(ForumUser::getUserID, forumUser -> forumUser));
+                 .filter(forumUser -> forumUser.getSex() == ('M'))
+                 .filter(forumUser -> forumUser.getBirthDate().getYear() <= 2000)
+                 .filter(forumUser -> forumUser.getNumberOfPosts() >= 1)
+                 .collect(Collectors.toMap(ForumUser::getUserID, forumUser -> forumUser));
                  theMap.entrySet().stream()
                  .map(entry -> entry.getKey() + ": " + entry.getValue())
                  .forEach(System.out::println);
