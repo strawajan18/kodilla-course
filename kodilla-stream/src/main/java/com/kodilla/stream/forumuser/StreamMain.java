@@ -11,7 +11,11 @@ public class StreamMain {
                 .filter(forumUser -> forumUser.getSex() = 'M')
                 .filter(forumUser -> forumUser.getBirthDate.of(yearOfBirth) <= 2000)
                 .filter(forumUser -> forumUser.getNumberOfPosts() >= 1)
-                .collect(Collectors.toMap(ForumUser: :getUserID, forumUser -> forumUser));
+                .collect(Collectors.toMap(ForumUser::getUserID, forumUser -> forumUser));
+                 theMap.entrySet().stream()
+                 .map(entry -> entry.getKey() + ": " + entry.getValue())
+                 .forEach(System.out::println);
+
 
     }
 }
