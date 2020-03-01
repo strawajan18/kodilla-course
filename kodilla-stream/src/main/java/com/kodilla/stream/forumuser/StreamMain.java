@@ -9,7 +9,7 @@ public class StreamMain {
         Forum forum = new Forum();
 
         Map<Integer, ForumUser> theMap = forum.getList().stream()
-                 .filter(forumUser -> forumUser.getSex() == ('M'))
+                 .filter(x -> x.getSex() == ('M'))
                  .filter(forumUser -> forumUser.getBirthDate().getYear() <= 2000)
                  .filter(forumUser -> forumUser.getNumberOfPosts() >= 1)
                  .collect(Collectors.toMap(ForumUser::getUserID, forumUser -> forumUser));
