@@ -20,5 +20,6 @@ public class ShapeCollector {
     public Shape getFigure(int n) {
         return theList.get(n);
     }
+
 }
 

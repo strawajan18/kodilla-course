@@ -8,6 +8,7 @@ import org.junit.Test;
 import javax.management.DescriptorKey;
 
 public class ShapeCollectorTestSuite {
+    Circle circle = new Circle(6);
 
     @Before
     public void before() {
@@ -24,9 +25,12 @@ public class ShapeCollectorTestSuite {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
         //When
-        shapeCollector.addFigure(new Circle(4));
+        shapeCollector.addFigure(circle);
+        double field = circle.getField();
         //Then
         Assert.assertEquals(shapeCollector.theList.size(), 1);
+        Assert.assertEquals(shapeCollector.getFigure(0).getField(),field,0);
+
     }
 
     @Test
@@ -34,7 +38,7 @@ public class ShapeCollectorTestSuite {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector();
         //When
-        shapeCollector.removeFigure(new Circle(4));
+        shapeCollector.removeFigure(circle);
         //Then
         Assert.assertEquals(shapeCollector.theList.size(), 0);
     }
@@ -47,8 +51,10 @@ public class ShapeCollectorTestSuite {
         shapeCollector.addFigure(triangle);
         //When
         Shape figure = shapeCollector.getFigure(0);
+        double field = shapeCollector.getFigure(0).getField();
         //Then
         Assert.assertEquals(triangle, figure);
+        Assert.assertEquals(field, triangle.getField(),0);
     }
 
 

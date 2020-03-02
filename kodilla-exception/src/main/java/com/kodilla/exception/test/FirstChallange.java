@@ -3,8 +3,6 @@ package com.kodilla.exception.test;
 public class FirstChallange {
 
     public double divide(double a, double b) throws ArithmeticException {
-        FirstChallange firstChallange = new FirstChallange();
-
         if(b==0) {
             throw new ArithmeticException();
         }
