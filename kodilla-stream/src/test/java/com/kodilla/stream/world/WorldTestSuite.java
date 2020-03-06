@@ -6,9 +6,7 @@ import org.junit.Test;
 import java.math.BigDecimal;
 
 public class WorldTestSuite {
-    @Test
-    public void testGetPeopleQuantity() {
-        //Given
+    public World prepareWorld() {
         World world = new World();
         Continent africa = new Continent("Africa");
         Continent asia = new Continent("Asia");
@@ -25,7 +23,6 @@ public class WorldTestSuite {
         world.addContinent(oceania);
         world.addContinent(antarctica);
 
-        //When
         africa.addCountry(new Country("Nigeria", new BigDecimal("181563000")));
         africa.addCountry(new Country("Ethiopia", new BigDecimal("99391000")));
         africa.addCountry(new Country("Egypt", new BigDecimal("89125000")));
@@ -51,9 +48,19 @@ public class WorldTestSuite {
         oceania.addCountry(new Country("Papua New Guinea", new BigDecimal("8219000")));
         oceania.addCountry(new Country("New Zealand", new BigDecimal("4579000")));
         oceania.addCountry(new Country("*The rest of Oceania", new BigDecimal("3181060")));
+        return world;
 
+    }
+
+
+    @Test
+    public void testGetPeopleQuantity() {
+        //Given
+        World world = prepareWorld();
+        //When
+        BigDecimal people = world.getPeopleQuantity();
         //THEN
-        Assert.assertEquals(new BigDecimal("7531843865"), world.getPeopleQuantity());
+        Assert.assertEquals(new BigDecimal("7531843865"), people);
     }
 
 }
