@@ -3,27 +3,29 @@ package com.kodilla.testing.forum.statistics;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ForumStatistics implements Statistics {
-    Statistics statistics;
+public class ForumStatistics {
+    private int usersCount;
+    private int postCount;
+    private int commentsCount;
+    private double averageUserPost;
+    private double averageUserComment;
+    private double averageCommentPost;
 
-    public int calculateAdvStatistics(Statistics statistics) {
-        this.statistics = statistics;
-        return 0;
 
+    public void calculateAdvStatistics(Statistics statistics) {
+        countUsers(statistics);
+        countPosts(statistics);
     }
 
-    @Override
-    public List<String> usersNames() {
-        return null;
+    private void countPosts(Statistics statistics) {
+        postCount = statistics.postsCount();
     }
 
-    @Override
-    public int postsCount() {
-        return 0;
+    private void countUsers(Statistics statistics) {
+        usersCount = statistics.usersNames().size();
     }
 
-    @Override
-    public int commentsCount() {
-        return 0;
+    public void showStatistic() {
+
     }
 }

@@ -77,10 +77,10 @@ public class BoardTestSuite {
         Board project = prepareTestData();
 
         //When
-        List<TaskList> inProgressTasks = new ArrayList<>();
-        inProgressTasks.add(new TaskList("In progress"));
+        //List<TaskList> inProgressTasks = new ArrayList<>();
+        //inProgressTasks.add(new TaskList("In progress"));
         double averageDays = project.getTaskLists().stream()
-                .filter(inProgressTasks::contains)
+                .filter(taskList -> taskList.getName().equals("In progress"))
                 .flatMap(taskList -> taskList.getTasks().stream())
                 .mapToInt(task -> Period.between(task.getCreated(),LocalDate.now()).getDays())
                 .average().getAsDouble();
