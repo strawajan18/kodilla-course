@@ -14,23 +14,14 @@ public class FindFlight {
         airports.put("WAR", true);
         airports.put("POZ", false);
 
-        String aa = flight.getArrivalAirport();
-        String da = flight.getDepartureAirport();
-
-        Iterator<Map.Entry<String, Boolean>> iterator = airports.entrySet().iterator();
-
-        while (iterator.hasNext()) {
-            Map.Entry<String, Boolean> entry = iterator.next();
-
-            if (aa == entry.getKey() && da == entry.getKey()) {
-                if (airports.get(flight.getArrivalAirport()) && airports.get(flight.getDepartureAirport())) {
-                    System.out.println("Flight from : " + flight.getDepartureAirport() + " to : " + flight.getArrivalAirport() + " has been found.");
-                } else {
-                    System.out.println("Sorry you can't go there. Choose another connection.");
-                }
+        if(airports.containsKey(flight.getDepartureAirport()) && airports.containsKey(flight.getArrivalAirport())) {
+            if(airports.get(flight.getArrivalAirport()) && airports.get(flight.getDepartureAirport())) {
+                System.out.println("Flight has been found !");
             } else {
-                throw new RouteNotFoundException();
+                System.out.println("Sorry you can't go there. Choose another connection.");
             }
+        } else {
+            throw new RouteNotFoundException();
         }
     }
 
@@ -39,7 +30,7 @@ public class FindFlight {
         FindFlight flightFinder = new FindFlight();
 
         try {
-            flightFinder.findFlight(new Flight("PZZ", "WAR"));
+            flightFinder.findFlight(new Flight("Heathrow", "WAR"));
         } catch (RouteNotFoundException e) {
             System.out.println("Our service doesn't inlcude this Airport");
         }
