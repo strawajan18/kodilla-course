@@ -74,7 +74,7 @@ public class BookDirectoryTestSuite {
         //When
         List<Book> theListBook = bookLibrary.listBooksInHandsOf(libraryUser);
         //Then
-        assertEquals(0,theListBook.size());
+        assertEquals(0, theListBook.size());
         verify(libraryDataBaseMock, times(1)).listBookInPossessionOf(libraryUser);
     }
 
