@@ -13,7 +13,7 @@ public class MovieTitlesIteration {
         return movieTitles.entrySet().stream()
                 .map(mv -> mv.getValue())
                 .flatMap(mv -> mv.stream())
-                .collect(Collectors.joining("!","\"","\""));
+                .collect(Collectors.joining("!","",""));
     }
 
     public static void main(String[] args) {
